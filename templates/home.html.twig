@@ -1,15 +1,17 @@
 {% include "base.html.twig" %}
 
     <body>
-<section class="vh-100 bg-dark">
-  <div class="container h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black">
-          <div class="card-body p-md-5">
-
-          </div>
+<div class="flexcat">
+      {% for categorie in categories %}
+      <a href="{{path('register')}}">
+        <div class="cardcat">
+            <img src='images/{{categorie.image}}' alt="{{categorie.image}}">
+              <p>{{categorie.name}}</p>
         </div>
-    </div>
-  </div>
-</section>            
+        </a>
+      {% endfor %}
+</div>
+
+
+
     </body>

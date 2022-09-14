@@ -1,0 +1,20 @@
+{% include "base.html.twig" %}
+    
+    {% block content %}
+    <body>
+        <center>
+            <form>
+                {{ form_start(publicationformulaire) }}
+
+                    {{ form_rest(publicationformulaire)}}
+
+                            <button>save</button>
+
+                {{ form_end(publicationformulaire) }} 
+
+            </form>
+</div>
+        </center>
+    </body>
+{% endblock %}
+
