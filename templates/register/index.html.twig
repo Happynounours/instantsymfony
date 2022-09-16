@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+
+
+{% block body %}
+{% include "shared/header.html" %}
+
+    <h1>Register</h1>
+
+    {{ form_start(myform) }}
+    <div class="container">
+        {{ form_rest(myform) }}
+        <button class="btn btn-primary">Save</button>
+    </div>
+   
+    {{ form_end(myform) }}
+
+{% endblock %}

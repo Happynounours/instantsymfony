@@ -22,6 +22,9 @@ class Register
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $imgprofil = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Register
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getImgprofil(): ?string
+    {
+        return $this->imgprofil;
+    }
+
+    public function setImgprofil(string $imgprofil): self
+    {
+        $this->imgprofil = $imgprofil;
 
         return $this;
     }

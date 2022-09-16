@@ -73,22 +73,30 @@ class DefaultController extends AbstractController
 
 
 
-    #[Route(path:"/register",name:"register")]
-    public function register(Request $request,EntityManagerInterface $test)
+    #[Route('/register', name: 'register')]
+    public function register(Request $request, EntityManagerInterface $saved): Response
     {
-        $userregister = new Register();
 
-        $registerform = $this->createForm(FormregisterType::class, $userregister);
-        $registerform->handleRequest($request);
+        $register = new Register();
 
-        if ($registerform->isSubmitted() && $registerform->isValid()){
-            $test->persist($userregister);
-            $test->flush();
+        $registerForm = $this->createForm(RegisterType::class, $register);
+        $registerForm->handleRequest($request);
+
+        if($registerForm->isSubmitted() && $registerForm->isValid()) {
+            $image = $registerForm->get('imgprofil')->getData();
+            $folder = $this->getParameter('profile.folder');
+            $extension = $image->guessExtension();
+            $filename = bin2hex(random_bytes(10)) . '.' . $extension;
+            $image->move($folder, $filename);
+            $register->setImgprofil($this->getParameter('profile.folder.public_path') . '/' . $filename);
             
+
+            $saved->persist($register);
+            $saved->flush();
         }
 
-        return $this->render('register.html.twig',[
-            'myform' => $registerform->createView()
+        return $this->render('register/index.html.twig', [
+            'myform' => $registerForm->createView(),
         ]);
     }
 
