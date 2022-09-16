@@ -29,8 +29,9 @@ html, body {
 }
 /* body */
 body{
+background-size: 100vh;
   background: linear-gradient(339deg, rgba(94,14,185,1) 0%, rgba(108,187,228,1) 100%);
-
+  background-repeat: no-repeat;
 }
 
 a{

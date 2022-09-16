@@ -1,7 +1,8 @@
 {% include "base.html.twig" %}
+  
 
-    <body>
-<div class="flexcat">
+{% block content %}
+  <div class="flexcat">
       {% for categorie in categories %}
       <a href="{{path('register')}}">
         <div class="cardcat">
@@ -11,7 +12,8 @@
         </a>
       {% endfor %}
 </div>
+{% endblock %}
 
 
 
-    </body>
+      

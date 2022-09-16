@@ -33,48 +33,26 @@ class DefaultController extends AbstractController
     }
 
 
-    #[
-        Route(path: '/pubread',name:"pubread")
-    ]
-    public function pubread(PublicationRepository $repo)
+
+ #[Route(path:"/publication",name:"publication")]
+    public function publication(): Response
     {
-        $pubread = $repo->findAll();
-
-
-        return $this->render('pubread.html.twig',[
-            'pubreads' => $pubread
-        ]);
-        
-    }
-
-
-    #[Route(path:"/publication",name:"publication")]
-    public function publication(Request $request,EntityManagerInterface $test)
-    {
-        $newpublication = new Publication();
-
-        $publicationform = $this->createForm(PublicationType::class, $newpublication);
-        $publicationform->handleRequest($request);
-
-        if ($publicationform->isSubmitted() && $publicationform->isValid()){
-            $test->persist($newpublication);
-            $test->flush();
-            
-        }
-
-        return $this->render('publication.html.twig',[
-            'publicationformulaire' => $publicationform->createView()
-        ]);
+        return $this->render('publication.html.twig', []);
     }
 
 
 
 
+<<<<<<< Updated upstream
 
 
 
     #[Route('/register', name: 'register')]
     public function register(Request $request, EntityManagerInterface $saved): Response
+=======
+    #[Route(path:"/register",name:"register")]
+    public function register(Request $request,EntityManagerInterface $test)
+>>>>>>> Stashed changes
     {
 
         $register = new Register();
