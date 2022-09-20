@@ -37,22 +37,19 @@ class DefaultController extends AbstractController
  #[Route(path:"/publication",name:"publication")]
     public function publication(): Response
     {
-        return $this->render('publication.html.twig', []);
-    }
+        $publicationformulaire = $this->createForm(PublicationType::class);
+        return $this->render('publication.html.twig', [
+            'form' => $publicationformulaire->createView()
+        ]);    }
 
 
 
-
-<<<<<<< Updated upstream
 
 
 
     #[Route('/register', name: 'register')]
     public function register(Request $request, EntityManagerInterface $saved): Response
-=======
-    #[Route(path:"/register",name:"register")]
-    public function register(Request $request,EntityManagerInterface $test)
->>>>>>> Stashed changes
+
     {
 
         $register = new Register();

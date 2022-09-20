@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('style.css')}}">
 </head>
+
 <body>
     {% include "shared/header.html" %}
-            {% block content %}{% endblock %}
-    {% include "shared/footer.html" %}
+
+        {% block body %}
+
+        {% endblock %}
 
 </body> 
+    {% include "shared/footer.html" %}
+
 </html>
