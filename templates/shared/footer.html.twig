@@ -1,0 +1,25 @@
+<footer> {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+<div class="footernav">
+    <a href="">
+      <img src=" {{ asset('images/photoicon.png') }}" />
+    </a>
+    <a href="{{path('home')}}">
+      <img src=" {{ asset('images/homeicon.png') }}" />
+    </a>
+       
+       <a class="imgprofilfooter" href="">
+     <img src="{{ app.user.imgProfil }}" alt="" height= "30">
+    </a>
+    </div>
+{% else %}
+<div class="footernav">
+<a href="{{path('home')}}">
+      <img src=" {{ asset('images/homeicon.png') }}" />
+    </a>
+  <a class="imgprofilfooter" href="">
+     <img src="{{ asset('images/picto-user.png') }}" alt="" height= "30">
+    </a>
+  
+</div>
+  {% endif %}
+</footer>

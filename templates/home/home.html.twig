@@ -1,7 +1,9 @@
 {% include "base.html.twig" %}
-  
-{% block content %}
-  <div class="flexcat">
+
+   {% include "shared/header.html.twig" %}
+
+    {% block body %}
+      <div class="flexcat">
       {% for categorie in categories %}
       <a href="{{path('register')}}">
         <div class="cardcat">
@@ -12,3 +14,7 @@
       {% endfor %}
 </div>
 {% endblock %}
+
+    {% include "shared/footer.html.twig" %}
+
+

@@ -1,4 +1,5 @@
 <header>
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
 <div class="btntopheader">
   <a href="">
     <img src=" {{ asset('images/flèche-pointant-vers-la-gauche-96.png') }}">
@@ -7,6 +8,15 @@
     <img src=" {{ asset('images/icons8-setting-96W.png') }}">
   </a>
 </div>
+{% else %}
+<div class="btntopheader">
+
+<a href="{{ path('login')}}"><button>Login</button></a>
+<a href="{{ path('register')}}"><button>Register</button></a>
+
+
+</div>
+{% endif %}
 
      <div class="headerlogo">
         <img src=" {{ asset('images/instantW.png') }}" alt="logo">
