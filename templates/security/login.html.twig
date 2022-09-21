@@ -3,23 +3,34 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-<h1>LOGINUSER</h1>
+<div class="login">
+    <div class="loginlogo">
+        <img src=" {{ asset('images/instantW.png') }}" alt="logo">
+    </div>
+    <div class="loginform">
+    <h1>CONNEXION</h1>
 
-    {% if error %}
-        <div> {{ error.messageKey | trans(error.messageData, 'security') }} </div>
-    {% endif %}
+        {% if error %}
+            <div> {{ error.messageKey | trans(error.messageData, 'security') }} </div>
+        {% endif %}
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="email">Email</label>
-        <input type="text" name="_username" id="email" value={{ username }}>
-        <label for="password">Mot de passe</label>
-        <input type="password" name="_password" id="password">
-        <label for="">
-            <input type="checkbox" name="_remember_me"> 
-            Remenber me?
-        </label>
-        <input type="hidden" name="_csrf_token" value={{ csrf_token('authenticate')}}>
-        <button>Submit</button>
-    </form>
-    <a href="{{path('register')}}" type="button">Register</a>
+        <form action="{{ path('login') }}" method="post">
+            <label for="email">Email</label>
+            <input type="text" name="_username" id="email" value={{ username }}>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="_password" id="password">
+            <label for="">
+                <input type="checkbox" name="_remember_me"> 
+                Se souvenir de moi
+            </label>
+            <input type="hidden" name="_csrf_token" value={{ csrf_token('authenticate')}}>
+            <button>Se connecter</button>
+        </form>
+        <a href="{{path('register')}}">
+            <button>S'enregistrer</button>
+        </a>
+    </div>
+</div>
+
+
 {% endblock %}

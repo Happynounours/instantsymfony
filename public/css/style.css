@@ -101,3 +101,45 @@ margin-bottom: 15px;
   border: 1px solid black;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginlogo {
+  display: flex;
+  justify-content: center;
+}
+
+.loginform {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+form input {
+  margin-bottom: 10px;
+  border-radius: 3px solid transparent;
+}
+
+button {
+  background-color: #515151;
+  color: white;
+  border-radius: 3px;
+  padding: 10px 20px;
+  border: 0;
+  cursor: pointer;
+}
+
+h1 {
+  color: white;
+}

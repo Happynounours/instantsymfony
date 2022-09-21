@@ -2,11 +2,16 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
-    <h1>REGISTER USER</h1>
+{% block body %}<div class="login">
+    <div class="loginlogo">
+        <img src=" {{ asset('images/instantW.png') }}" alt="logo">
+    </div>
+    <div class="loginform">
+    <h1>S'ENREGISTRER</h1>
 
     {{ form_start(form) }}
     {{ form_rest(form) }}
     <button>Save</button>
     {{ form_end(form) }}
+</div>
 {% endblock %}
