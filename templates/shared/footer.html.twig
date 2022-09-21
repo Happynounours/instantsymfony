@@ -1,6 +1,6 @@
 <footer> {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
 <div class="footernav">
-    <a href="">
+    <a href="{{path('publication')}}">
       <img src=" {{ asset('images/photoicon.png') }}" />
     </a>
     <a href="{{path('home')}}">
