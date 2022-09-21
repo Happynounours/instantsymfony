@@ -35,6 +35,12 @@ class HomeController extends AbstractController
 
 
          if ($formPublication->isSubmitted() && $formPublication->isValid()) {
+            $image = $formPublication->get('image')->getData();
+            $folder = $this->getParameter('publication.folder');
+            $extension = $image->guessExtension();
+            $filename = bin2hex(random_bytes(10)) . '.' . $extension;
+            $image->move($folder, $filename);
+            $newpublication->setImage($this->getParameter('publication.folder.public_path') . '/' . $filename);
             $newpublication->setDate(new \DateTime());
             $test->persist($newpublication);
             $test->flush();

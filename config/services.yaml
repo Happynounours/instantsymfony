@@ -6,7 +6,8 @@
 parameters:
     profile.folder: '%kernel.project_dir%/public/profil'
     profile.folder.public_path: 'profil'
-
+    publication.folder: '%kernel.project_dir%/public/publication'
+    publication.folder.public_path: 'publication'
 services:
     # default configuration for services in *this* file
     _defaults:

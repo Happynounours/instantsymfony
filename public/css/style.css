@@ -143,3 +143,42 @@ button {
 h1 {
   color: white;
 }
+
+
+
+/* formulaire publication */
+
+.publicationimage{
+}
+
+
+.publicationtitle{
+  border: 1px solid black;
+  text-align: center;
+  height: 30px;
+  width: 55%;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+
+}
+
+
+
+.publicationdescription{
+  border: 1px solid black;
+  min-height: 100px;
+  min-width: 70%;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+margin-bottom: 10px;
+}
+.publicationcategorie{
+  border: 1px solid black;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 10px;
+}
