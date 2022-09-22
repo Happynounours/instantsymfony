@@ -24,7 +24,7 @@ class UserType extends AbstractType
                     'maxSizeMessage' => 'L\'image est trop grande, sa taille est de {{ limit }} {{ suffix }}'
                 ])
             ]])
-        ;
+            ->add('description');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

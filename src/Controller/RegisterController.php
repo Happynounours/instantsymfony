@@ -33,6 +33,7 @@ class RegisterController extends AbstractController
     {
         $user =new User(); // instanciation
         $userForm = $this->createForm(UserType::class, $user);
+        $userForm->remove('description');
         $userForm->handleRequest($request);
 
         if ($userForm->isSubmitted() && $userForm->isValid()) {
