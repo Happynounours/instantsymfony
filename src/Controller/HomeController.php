@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Publication;
 use App\Form\PublicationType;
 use App\Repository\CategorieRepository;
+use App\Repository\PublicationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +26,19 @@ class HomeController extends AbstractController
             'categories' => $categorie
         ]);
     }
+
+    #[Route('/homeallpublication', name: 'homeallpublication')]
+    public function homeallpublication(PublicationRepository $repo): Response
+    {
+
+        $publication = $repo->findAll();
+
+
+        return $this->render('home/homeallpublication.html.twig',[
+            'publications' => $publication
+        ]);
+    }
+    
 
     #[Route('/publication', name: 'publication')]
     public function publication(Request $request, EntityManagerInterface $test)
