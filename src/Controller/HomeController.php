@@ -31,7 +31,7 @@ class HomeController extends AbstractController
     public function homeallpublication(PublicationRepository $repo): Response
     {
 
-        $publication = $repo->findAll();
+        $publication = $repo->findBy([], ['date' => 'DESC']);
 
 
         return $this->render('home/homeallpublication.html.twig',[

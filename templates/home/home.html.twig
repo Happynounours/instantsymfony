@@ -7,11 +7,8 @@
 
     {% block body %}
 
-    <center>
-      <a href="{{path('home')}}">catégorie</a>
-      <a href="{{path('homeallpublication')}}">TOUT</a>
-    
-    </center>
+   {% include "shared/selectcatall.html.twig" %}
+
 
       <div class="flexcat">
       {% for categorie in categories %}
