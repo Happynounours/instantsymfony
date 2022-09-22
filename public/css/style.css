@@ -10,6 +10,12 @@
   justify-content: space-between;
 }
 
+.btntopheaderlogin{
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
 
 .btntopheader img{
   height: 30px;
@@ -148,8 +154,7 @@ h1 {
 
 /* formulaire publication */
 
-.publicationimage{
-}
+
 
 
 .publicationtitle{
@@ -224,4 +229,22 @@ margin-bottom: 10px;
 
 .publicationinfocategorie{
   color: blue;
+}
+
+.profil {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.imgprofil {
+  border-radius: 50%;
+  width: 150px;
+}
+
+.profil p {
+padding: 20px;
+color: white;
+font-size: 20px;
 }

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+{% include "shared/header.html.twig" %}
+    <div class="profil">
+        <img class="imgprofil" src={{ user.imgProfil }} alt="">
+        <p>{{user.pseudo}}</p>
+    </div>
+{% include "shared/footer.html.twig" %}
+
+{% endblock %}
+
+    

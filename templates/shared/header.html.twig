@@ -9,11 +9,9 @@
   </a>
 </div>
 {% else %}
-<div class="btntopheader">
+<div class="btntopheaderlogin">
 
-<a href="{{ path('login')}}"><button>Login</button></a>
-<a href="{{ path('register')}}"><button>Register</button></a>
-
+<a href="{{ path('login')}}"><button>Connexion</button></a>
 
 </div>
 {% endif %}
@@ -21,7 +19,5 @@
      <div class="headerlogo">
         <img src=" {{ asset('images/instantW.png') }}" alt="logo">
     </div>
-
-
 
 </header>

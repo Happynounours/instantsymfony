@@ -1,0 +1,17 @@
+{% include "base.html.twig" %}
+
+   {% include "shared/header.html.twig" %}
+
+    {% block body %}
+      <div class="flexcat">
+        <h1>publication</h1>
+        {{ form_start(formPublication) }}
+        {{ form_rest(formPublication) }}
+            <button>Save</button>
+        {{ form_end(formPublication) }}
+</div>
+{% endblock %}
+
+    {% include "shared/footer.html.twig" %}
+
+
