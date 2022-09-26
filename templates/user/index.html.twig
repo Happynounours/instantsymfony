@@ -10,6 +10,18 @@
         <img class="imgprofil" src={{ user.imgProfil }} alt="">
         <p>{{user.pseudo}}</p>
     </div>
+
+    <div class="block mb20">
+        <h3>Mes publications</h3>
+        <ul>
+            {% for publication in app.user.publications %}
+                <li>{{ publication.title }}</li>
+                <img src={{publication.image}} alt="">
+            {% endfor %}
+        </ul>
+    </div>
+
+    
 {% include "shared/footer.html.twig" %}
 
 {% endblock %}

@@ -61,10 +61,24 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('home');
         };
 
-        return $this->render('publication.html.twig', [
+        return $this->render('publication/publication.html.twig', [
             'formPublication' => $formPublication->createView(),
         ]);
     
-
 }
+
+#[Route('/settings', name: 'settings')]
+    public function settings(CategorieRepository $repo): Response
+    {
+
+        // $categorie = $repo->findAll();
+
+
+        return $this->render('home/settings.html.twig',
+        // [
+        //     'categories' => $categorie
+        // ]
+    );
+    }
+
 }

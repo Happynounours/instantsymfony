@@ -4,22 +4,31 @@
 
     {% block body %}
 
-      {% include "shared/selectcatall.html.twig" %}
-
+    <center>
+      <a href="{{path('home')}}">catégorie</a>
+      <a href="{{path('homeallpublication')}}">TOUT</a>
+    
+    </center>
 
       <div class="flexcat">
       {% for publication in publications %}
         <div class="cardpublication">
-            <img class="imagepublication" src='publication/{{publication.image}}' alt="{{publication.image}}">
+            <img class="imagepublication" src='{{publication.image}}' alt="{{publication.image}}">4
+
             <div class="publicationinfo">
                 <div>
-                    <img class="imageprofilpublication" src='publication/{{publication.image}}' alt="{{publication.image}}">
+                    <img class="imageprofilpublication" src='{{publication.image}}' alt="{{publication.image}}">
                 </div>
+
                 <div>
+
                     <p class="publicationinfotitle">{{publication.title}}</p>
                     <p class="publicationinfodescritpion">{{publication.description}}</p>
+                    <p class="publicationinfocategorie">#{{publication.categorie}}</p>
                 </div>
             </div>
+
+
         </div>
     
       {% endfor %}

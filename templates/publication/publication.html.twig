@@ -3,12 +3,19 @@
    {% include "shared/header.html.twig" %}
 
     {% block body %}
-      <div class="flexcat">
-        <h1>publication</h1>
-        {{ form_start(formPublication) }}
-        {{ form_rest(formPublication) }}
+      <div class="formpublication">
+      {# {{ form_start(formPublication) }}
+      {{ form_widget(formPublication.image) }}
+      {{ form_widget(formPublication.title) }}
+      {{ form_widget(formPublication.description) }}
+      {{ form_widget(formPublication.categorie) }}
+
+      {{ form_rest(formPublication) }}
             <button>Save</button>
-        {{ form_end(formPublication) }}
+    {{ form_end(formPublication) }} #}
+     <form action="{{ path('publication') }}" method="post">
+        <input type="file">
+        <input type="text" placeholder="Titre">
 </div>
 {% endblock %}
 

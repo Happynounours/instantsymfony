@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include "shared/headersettings.html.twig" %}
+    <div class="titlesettings">
+        <h1>PARAMETRES</h1>
+    </div>
+    <div class="settings">
+    <a href="">Infos</a>
+    <a href="{{ path('logout') }}">Déconnexion</a>
+    </div>
+
+{% endblock %}
