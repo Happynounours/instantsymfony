@@ -7,14 +7,14 @@
 
 {% include "shared/header.html.twig" %}
     <div class="profil">
-        <img class="imgprofil" src={{ user.imgProfil }} alt="">
-        <p>{{user.pseudo}}</p>
+        <img class="imgprofil" src={{ categorie.image }} alt="">
+        <p>{{categorie.name}}</p>
     </div>
 
     <div class="block mb20">
-        <h3>Mes publications</h3>
+        <h3>publications</h3>
         <ul>
-            {% for publication in user.publications %}
+            {% for categorie in categorie.publications %}
                 <li>{{ publication.title }}</li>
                 <img src='publication/{{publication.image}}' alt="">
             {% endfor %}
@@ -25,5 +25,3 @@
 {% include "shared/footer.html.twig" %}
 
 {% endblock %}
-
-    

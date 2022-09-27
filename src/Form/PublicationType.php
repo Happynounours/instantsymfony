@@ -46,25 +46,6 @@ class PublicationType extends AbstractType
                 ],
                 'help' => 'Ce champ est obligatoire'
              ])
-             
-            ->add('categorie', ChoiceType::class, [
-                'attr' => [
-                    'class' => 'publicationcategorie',
-                ],
-                'choices' => [
-                    'Nature' => 'Nature',
-                    'Musique' => 'Musique',
-                    'Animaux' => 'Animaux',
-                    'Animés' => 'Animés',
-                    'Espace' => 'Espace',
-                    'Fun' => 'Fun',
-                    'Illustration' => 'Illustration',
-                    'Jeux' => 'Jeux',
-                    'Films/Séries' => 'Films/Séries',
-                    'Vehicules' => 'Vehicules',
-                    'Gastronomie' => 'Gastronomie',
-                ]
-            ])
 
         ;
     }

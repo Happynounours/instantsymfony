@@ -2,12 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Publication;
 use App\Form\PublicationType;
 use App\Repository\CategorieRepository;
 use App\Repository\PublicationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,6 +32,8 @@ class HomeController extends AbstractController
         ]);
     }
 
+
+
     #[Route('/homeallpublication', name: 'homeallpublication')]
     public function homeallpublication(PublicationRepository $repo): Response
     {
@@ -41,14 +48,28 @@ class HomeController extends AbstractController
     
 
     #[Route('/publication', name: 'publication')]
-    public function publication(Request $request, EntityManagerInterface $test)
+    public function publication(Request $request, EntityManagerInterface $test, CategorieRepository $repo): Response
     {
+        // $categorie = $repo->findBy([], ['name' => 'DESC']);
+        // $categorie = $repo->findNameOfCat();
+        $categorie = $repo->findAll();
+        $user = $this->getUser();
+
+        // dd($categorie);
+
+
         $newpublication = new Publication();
         $formPublication = $this->createForm(PublicationType::class, $newpublication);
+        $formPublication->add('image', FileType::class)
+                        ->add('title', TextType::class)
+                        ->add('description', TextareaType::class)
+                        ->add('categorie', ChoiceType::class, [
+                            // 'mapped' => false,
+                            'choices' => $categorie
+                            ]);
             $formPublication->handleRequest($request);
 
-
-         if ($formPublication->isSubmitted() && $formPublication->isValid()) {
+         if($formPublication->isSubmitted() && $formPublication->isValid()) {
             $image = $formPublication->get('image')->getData();
             $folder = $this->getParameter('publication.folder');
             $extension = $image->guessExtension();
@@ -56,28 +77,26 @@ class HomeController extends AbstractController
             $image->move($folder, $filename);
             $newpublication->setImage($this->getParameter('publication.folder.public_path') . '/' . $filename);
             $newpublication->setDate(new \DateTime());
+            $newpublication->setUser($user);
+            // dd($formPublication);
+
             $test->persist($newpublication);
             $test->flush();
             return $this->redirectToRoute('home');
         };
 
         return $this->render('publication/publication.html.twig', [
-            'formPublication' => $formPublication->createView(),
+            'form' => $formPublication->createView()
         ]);
     
 }
 
 #[Route('/settings', name: 'settings')]
-    public function settings(CategorieRepository $repo): Response
+
+
+    public function settings()
     {
-
-        // $categorie = $repo->findAll();
-
-
         return $this->render('home/settings.html.twig',
-        // [
-        //     'categories' => $categorie
-        // ]
     );
     }
 

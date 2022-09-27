@@ -6,16 +6,20 @@
     <a href="{{path('home')}}">
       <img src=" {{ asset('images/homeicon.png') }}" />
     </a>
-       
+
+    
        <a class="imgprofilfooter" href="{{path('user_current')}}">
      <img src="{{ app.user.imgProfil }}" alt="" height= "30">
     </a>
+
+
     </div>
 {% else %}
 <div class="footernav">
 <a href="{{path('home')}}">
       <img src=" {{ asset('images/homeicon.png') }}" />
     </a>
+
   <a class="imgprofilfooter" href="{{path('login')}}">
      <img src="{{ asset('images/picto-user.png') }}" alt="" height= "30">
     </a>

@@ -3,22 +3,32 @@
    {% include "shared/header.html.twig" %}
 
     {% block body %}
-      <div class="formpublication">
-      {# {{ form_start(formPublication) }}
-      {{ form_widget(formPublication.image) }}
-      {{ form_widget(formPublication.title) }}
-      {{ form_widget(formPublication.description) }}
-      {{ form_widget(formPublication.categorie) }}
 
-      {{ form_rest(formPublication) }}
-            <button>Save</button>
-    {{ form_end(formPublication) }} #}
-     <form action="{{ path('publication') }}" method="post">
-        <input type="file">
-        <input type="text" placeholder="Titre">
-</div>
+        {{ form_start(form) }}
+    {{ form_rest(form) }}
+    <button>Save</button>
+    {{ form_end(form) }}
+
+        {# <form action="{{ path('publication') }}" method="post">
+                <label for="image">image</label>
+                    <input type="file" name="_image" id="image">
+
+                <label for="title">title</label>
+                    <input type="text" name="_title" id="title" >
+
+                <label for="description">description</label>
+                    <input type="text" name="_description" id="description">
+
+                <select name="_categorie" id="categorie">
+                    <option>select cat</option>
+                        {% for categorie in categories %}
+                                <option>{{categorie.name}}</option>
+                        {% endfor %}
+                </select>
+
+                <button>validé</button>
+
+        </form> #}
 {% endblock %}
 
     {% include "shared/footer.html.twig" %}
-
-

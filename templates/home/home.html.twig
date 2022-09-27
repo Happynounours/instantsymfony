@@ -11,7 +11,8 @@
 
       <div class="flexcat">
       {% for categorie in categories %}
-        <div class="cardcat">
+      {# <a href={{ path('one_categorie', {id: categorie.id}) }}> #}
+              <div class="cardcat">
             <img src='images/{{categorie.image}}' alt="{{categorie.image}}">
               <p>{{categorie.name}}</p>
         </div>
