@@ -2,24 +2,23 @@
 
    {% include "shared/header.html.twig" %}
 
-
-
-
     {% block body %}
 
 {% include "shared/selectcatall.html.twig" %}
 
       <div class="flexcat">
       {% for categorie in categories %}
-      {# <a href={{ path('one_categorie', {id: categorie.id}) }}> #}
               <div class="cardcat">
-            <img src='images/{{categorie.image}}' alt="{{categorie.image}}">
+              <a href="{{ path('onecat', { id: categorie.id}) }}">
+                <img src='images/{{categorie.image}}' alt="{{categorie.image}}">
+              </a>
               <p>{{categorie.name}}</p>
         </div>
         </a>
       {% endfor %}
 </div>
 {% endblock %}
+<div class="spacebottom"/>
 
     {% include "shared/footer.html.twig" %}
 

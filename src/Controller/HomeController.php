@@ -32,13 +32,24 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/onecat/{id}', name: 'onecat')]
+    public function onecat(CategorieRepository $repo, $id)
+    {
+
+        $onecat = $repo->findBy($id);
+        
+        return $this->render('oneCategorie/index.html.twig',[
+            'onecat' => $onecat
+        ]);
+    }
+
 
 
     #[Route('/homeallpublication', name: 'homeallpublication')]
     public function homeallpublication(PublicationRepository $repo): Response
     {
 
-        $publication = $repo->findAll();
+        $publication = $repo->findBy([], ['date' => 'DESC']);
 
 
         return $this->render('home/homeallpublication.html.twig',[
@@ -60,27 +71,35 @@ class HomeController extends AbstractController
 
         $newpublication = new Publication();
         $formPublication = $this->createForm(PublicationType::class, $newpublication);
-        $formPublication->add('image', FileType::class)
+        $formPublication->add('image', FileType::class,[
+            'label' => false,
+            'attr' => [
+                'class' => 'inputfile',     
+                'placeholder' => false,
+            ],
+        ])
                         ->add('title', TextType::class,[
                             'label' => false,
                             'attr' => [
-                                'class' => 'titlepublication',     
+                                'class' => 'inputtext',     
                                 'placeholder' => 'Titre',
-                                'label' => '',
                             ],
                         ])
 
                         ->add('description', TextareaType::class,[
                             'label' => false,
                             'attr' => [
-                                'class' => 'descriptionpublication',     
+                                'class' => 'inputtextarea',     
                                 'placeholder' => 'Description',
                             ],
                         ])
 
                         ->add('categorie', ChoiceType::class, [
-                            // 'mapped' => false,
-                            'choices' => $categorie
+                            'attr' => [
+                                'class' => 'selectinput',     
+                            ],
+                            'choices' => $categorie,
+                            'label' => false,
                             ]);
             $formPublication->handleRequest($request);
 
