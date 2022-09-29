@@ -46,11 +46,18 @@ a{
   text-decoration: none;
 
 }
-
 .flexcat{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.flexcatall{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
 }
 
 .cardcat{
@@ -193,6 +200,7 @@ margin-bottom: 10px;
 .cardpublication{
   background-color: white;
   border-radius: 12px;
+  margin-top: 2em;
 }
 
 

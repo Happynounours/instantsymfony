@@ -61,8 +61,23 @@ class HomeController extends AbstractController
         $newpublication = new Publication();
         $formPublication = $this->createForm(PublicationType::class, $newpublication);
         $formPublication->add('image', FileType::class)
-                        ->add('title', TextType::class)
-                        ->add('description', TextareaType::class)
+                        ->add('title', TextType::class,[
+                            'label' => false,
+                            'attr' => [
+                                'class' => 'titlepublication',     
+                                'placeholder' => 'Titre',
+                                'label' => '',
+                            ],
+                        ])
+
+                        ->add('description', TextareaType::class,[
+                            'label' => false,
+                            'attr' => [
+                                'class' => 'descriptionpublication',     
+                                'placeholder' => 'Description',
+                            ],
+                        ])
+
                         ->add('categorie', ChoiceType::class, [
                             // 'mapped' => false,
                             'choices' => $categorie
