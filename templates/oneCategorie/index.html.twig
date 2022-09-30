@@ -5,7 +5,10 @@
 
 {% block body %}
 
-{% include "shared/header.html.twig" %}
+
+<p>{{onecat.id}}</p>
+
+{# {% include "shared/header.html.twig" %}
     <div class="profil">
         <img class="imgprofil" src={{ categorie.image }} alt="">
         <p>{{categorie.name}}</p>
@@ -19,7 +22,7 @@
                 <img src='publication/{{publication.image}}' alt="">
             {% endfor %}
         </ul>
-    </div>
+    </div> #}
 
     
 {% include "shared/footer.html.twig" %}
