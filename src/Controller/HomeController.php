@@ -41,6 +41,17 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/one_publication/{id}', name:'one_publication')]
+    public function one_publication(PublicationRepository $prepo, $id) : Response
+    {
+
+    
+            $one_publication = $prepo->findBy(['id' => $id]);
+
+            return $this->render('home/onepublication.html.twig', [
+            'one_publication' => $one_publication
+        ]);
+     }
 
 
     #[Route('/homeallpublication', name: 'homeallpublication')]
@@ -123,16 +134,7 @@ class HomeController extends AbstractController
     
 }
 
-#[Route('/one_publication/{id}', name:'one_publication')]
-public function one_publication(PublicationRepository $prepo, $id) : Response
-{
 
-    $publication = $prepo->findBy(['publi' => $id]);
-   
-    return $this->render('home/onepublication.html.twig', [
-        'publi' => $publication
-    ]);
- }
 
 #[Route('/settings', name: 'settings')]
 

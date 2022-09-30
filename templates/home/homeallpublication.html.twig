@@ -9,7 +9,7 @@
 
       <div class="flexcatall">
       {% for publication in publications %}
-      <a href={{path('one_publication', {id: publication.id}) }}>
+      <a href="{{path('one_publication', {id: publication.id}) }}">
         <div class="cardpublication">
             <img class="imagepublication" src='{{publication.image}}' alt="{{publication.image}}">
 
