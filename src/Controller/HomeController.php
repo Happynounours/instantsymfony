@@ -33,11 +33,9 @@ class HomeController extends AbstractController
     }
 
     #[Route('/onecat/{id}', name: 'onecat')]
-    public function onecat(CategorieRepository $repo, $id)
+    public function onecat(CategorieRepository $repo, PublicationRepository $prepo, $id): Response
     {
-
-        $onecat = $repo->findBy($id);
-        
+            $onecat = $prepo->findBy(['categorie' => $id]);
         return $this->render('oneCategorie/index.html.twig',[
             'onecat' => $onecat
         ]);

@@ -1,30 +1,34 @@
-{% extends 'base.html.twig' %}
+{% include "base.html.twig" %}
+
+   {% include "shared/header.html.twig" %}
+
+    {% block body %}
+
+      {% include "shared/selectcatall.html.twig" %}
 
 
+      <div class="flexcatall">
+      {% for onecat in onecat %}
+        <div class="cardpublication">
+            <img class="imagepublication" src='/{{onecat.image}}' alt="{{onecat.image}}">
+
+            <div class="publicationinfo">
+                <div>
+                    <img class="imageprofilpublication" src='/{{onecat.image}}' alt="{{onecat.image}}">
+                </div>
+
+                <div>
+
+                    <p class="publicationinfotitle">{{onecat.title}}</p>
+                    <p class="publicationinfodescritpion">{{onecat.description}}</p>
+                </div>
+            </div>
 
 
-{% block body %}
-
-
-<p>{{onecat.id}}</p>
-
-{# {% include "shared/header.html.twig" %}
-    <div class="profil">
-        <img class="imgprofil" src={{ categorie.image }} alt="">
-        <p>{{categorie.name}}</p>
-    </div>
-
-    <div class="block mb20">
-        <h3>publications</h3>
-        <ul>
-            {% for categorie in categorie.publications %}
-                <li>{{ publication.title }}</li>
-                <img src='publication/{{publication.image}}' alt="">
-            {% endfor %}
-        </ul>
-    </div> #}
-
+        </div>
     
-{% include "shared/footer.html.twig" %}
+      {% endfor %}
+</div>
 
+<div class="spacebottom"/>
 {% endblock %}

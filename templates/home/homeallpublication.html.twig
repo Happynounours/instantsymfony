@@ -9,23 +9,26 @@
 
       <div class="flexcatall">
       {% for publication in publications %}
-        <div class="cardpublication">
-            <img class="imagepublication" src='{{publication.image}}' alt="{{publication.image}}">
+        <a href="{{ path('onepublication', { id: publication.id}) }}">
+            <div class="cardpublication">
+                <img class="imagepublication" src='{{publication.image}}' alt="{{publication.image}}">
 
-            <div class="publicationinfo">
-                <div>
-                    <img class="imageprofilpublication" src='{{publication.image}}' alt="{{publication.image}}">
+                <div class="publicationinfo">
+                    <div>
+                        <img class="imageprofilpublication" src='{{publication.image}}' alt="{{publication.image}}">
+                    </div>
+
+                    <div>
+
+                        <p class="publicationinfotitle">{{publication.title}}</p>
+                        <p class="publicationinfodescritpion">{{publication.description}}</p>
+                    </div>
                 </div>
 
-                <div>
 
-                    <p class="publicationinfotitle">{{publication.title}}</p>
-                    <p class="publicationinfodescritpion">{{publication.description}}</p>
-                </div>
             </div>
+        </a>
 
-
-        </div>
     
       {% endfor %}
 </div>
